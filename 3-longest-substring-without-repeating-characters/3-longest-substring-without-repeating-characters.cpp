@@ -5,7 +5,7 @@ public:
         int j=0;
         int len = 0;
         int n = s.length();
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         while(i<n && j<n){
             if(mp[s[j]]==0){
                 mp[s[j]]++;
