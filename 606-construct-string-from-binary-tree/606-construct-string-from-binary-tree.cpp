@@ -11,31 +11,12 @@
  */
 class Solution {
 public:
-    void solve(TreeNode* root,string &s){
-        s = s + to_string(root->val);
-        if(!root->left && !root->right){
-            return;
-        }
-        
-        if(root->left){
-            s = s + "(";
-            solve(root->left,s);
-            s = s + ")";
-        }
-        else{
-            if(root->right){
-                s = s + "()";
-            }
-        }
-        if(root->right){
-            s = s + "(";
-            solve(root->right,s);
-            s = s + ")";
-        }
-    }
-    string tree2str(TreeNode* root) {
-        string s ="";
-        solve(root,s);
+    string tree2str(TreeNode* t) {
+        if (t == NULL) return "";
+        string s = to_string(t->val);
+        if (t->left) s += '(' + tree2str(t->left) + ')';
+        else if (t->right) s += "()";
+        if (t->right) s += '(' + tree2str(t->right) + ')';
         return s;
     }
 };
