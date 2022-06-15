@@ -12,12 +12,11 @@
 class Solution {
 public:
     void solve(TreeNode* root,string &s){
+        s = s + to_string(root->val);
         if(!root->left && !root->right){
-            s = s + to_string(root->val);
-            //s = s + ")";
             return;
         }
-        s = s + to_string(root->val);
+        
         if(root->left){
             s = s + "(";
             solve(root->left,s);
