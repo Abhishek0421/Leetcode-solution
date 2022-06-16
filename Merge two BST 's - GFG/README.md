@@ -1,5 +1,5 @@
 # Merge two BST 's
-## Hard 
+##  Hard 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given two BSTs, return elements of both BSTs in <strong>sorted </strong>form.</span></p>
 
