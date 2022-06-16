@@ -36,12 +36,16 @@ return 0;
 int search(int arr[], int n, int x, int k)
 {
     // Complete the function
-    int j=-1;
-    for(int i=0;i<n;i++){
+    int i=0;
+    while(i<n){
         if(arr[i]==x){
-            j=i;
-            break;
+            return i;
         }
+        
+        i = i + max(1,abs((x-arr[i])/k));
     }
-    return j;
+    if(i>=n){
+        return -1;
+    }
+    return i;
 }    	
