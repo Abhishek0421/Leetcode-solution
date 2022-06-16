@@ -17,17 +17,35 @@ class Solution{
     {
         
         // your code here
-        map<int,int> mp;
-        int ans = -1;
+        int count=0;
+        int maj =0;
+        int j=0;
         for(int i=0;i<size;i++){
-            mp[a[i]]++;
-            if(mp[a[i]]>size/2){
-                //f=1;
-                ans = a[i];
+            if(count==0){
+                maj = a[i];
+                j = i;
+                count++;
+            }
+            else{
+                if(a[i]!=maj){
+                    count--;
+                }
+                else{
+                    count++;
+                }
             }
         }
-        return ans;
-        
+        int x = a[j];
+        int c = 0;
+        for(int i=0;i<size;i++){
+            if(a[i]==x){
+                c++;
+            }
+        }
+        if(c>size/2){
+            return x;
+        }
+        return -1;
     }
 };
 
