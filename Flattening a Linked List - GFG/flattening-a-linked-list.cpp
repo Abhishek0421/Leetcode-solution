@@ -137,8 +137,6 @@ Node *flatten(Node *root)
 {
    // Your code here
    Node* r1 = root;
-   Node* head = r1;
-   //root = root->next;
    while(root->next){
        r1 = merge(r1,root->next);
        root = root->next;
