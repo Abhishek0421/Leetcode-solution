@@ -1,32 +1,25 @@
 class Solution {
 public:
-    int Amax(int i,int j,vector<int>& piles,unordered_map<string,int> &memo)
-    {
-        string pos = to_string(i)+','+to_string(j);
-        if(memo.count(pos))
-            return memo[pos];
-        if(i>j)
+    int dp[501][501];
+    int solve(vector<int> &p,int i,int j){
+        if(i>j){
             return 0;
-        if(i==j)
-            return piles[i];
-        int f1 = piles[i]+min(Amax(i+2,j,piles,memo),Amax(i+1,j-1,piles,memo));
-        int f2 = piles[j]+min(Amax(i+1,j-1,piles,memo),Amax(i,j-2,piles,memo));
-        
-        memo[pos] = max(f1,f2);
-        return memo[pos];
+        }
+        if(dp[i][j]!=-1){
+            return dp[i][j];
+        }
+        return dp[i][j] = max(p[i]+min(solve(p,i+2,j),solve(p,i+1,j-1)),p[j]+min(solve(p,i+1,j-1),solve(p,i,j-2)));
     }
     bool stoneGame(vector<int>& piles) {
-        int total = 0;
-        unordered_map<string,int> memo;
-        for(auto p:piles)
-        {
-            total+=p;
+        memset(dp,-1,sizeof(dp));
+        int mx  = solve(piles,0,piles.size()-1);
+        int sum=0;
+        for(int i=0;i<piles.size();i++){
+            sum+=piles[i];
         }
-        int a = Amax(0,piles.size()-1,piles,memo);
-        int b = total-a;
-        if(a>b)
-            return true;
-        else
+        if(sum-mx > mx){
             return false;
+        }
+        return true;
     }
 };
