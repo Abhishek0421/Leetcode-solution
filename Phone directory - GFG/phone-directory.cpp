@@ -6,54 +6,68 @@ using namespace std;
 
  // } Driver Code Ends
 // User function Template for C++
-
+class TrieNode{
+    public:
+       TrieNode* child[26];
+       bool flag;
+       TrieNode(){
+           for(int i=0;i<26;i++){
+               child[i]=NULL;
+           }
+           flag = false;
+       }
+};
 class Solution{
 public:
-   vector<vector<string>> displayContacts(int n, string contact[], string s)
-   {
-       string temp;
-       map<string,int> cont;
-       vector<vector<string>>  out(s.size(),vector<string>(1,"0"));
-       int flag=0;
-       
-       
-       for(int j=0;j<n;j++)
-       {
-           
-           cont[contact[j]];
-           
-       }
-       
-       
-       for(int i=0;i<s.size();i++)
-       {
-           temp.clear();
-           temp=s.substr(0,1+i);
-           flag=0;
-           out[i].clear();
-           for(auto j : cont)
-           {
-               
-               if(temp.compare((j.first).substr(0,1+i))==0)
-               {
-                  
-                  out[i].push_back((j.first));
-                  flag=1;
-               }
-               
-           }
-           
-           if(flag==0)
-           {
-               out[i].push_back("0");
-           }
-           
-       }
-       
-       return out;
-   }
-
- 
+    TrieNode* insert(TrieNode* root,string &s){
+        TrieNode* node = root;
+        for(auto x:s){
+            if(!node->child[x-'a']){
+                TrieNode* nnode = new TrieNode();
+                node->child[x-'a']=nnode;
+            }
+            node = node->child[x-'a'];
+        }
+        node->flag = true;
+        return root;
+    }
+    void search(TrieNode* root,string &s,vector<vector<string>> &v){
+        TrieNode* node = root;
+        int j=0;
+        for(auto x:s){
+            if(!node->child[x-'a']){
+                return;
+            }
+            v[j].push_back(s);
+            j++;
+            node = node->child[x-'a'];
+        }
+    }
+    vector<vector<string>> displayContacts(int n, string contact[], string s)
+    {
+        // code here
+        vector<vector<string>> v(s.length());
+        TrieNode* root=new TrieNode();
+        root = insert(root,s);
+        set<string> st;
+        for(int i=0;i<n;i++){
+            st.insert(contact[i]);
+        }
+        while(st.size()>0){
+            auto it = *st.begin();
+            st.erase(st.begin());
+            search(root,it,v);
+        }
+        for(int i=0;i<v.size();i++){
+            if(v[i].size()==0){
+                v[i].push_back("0");
+            }
+            else{
+                sort(v[i].begin(),v[i].end());
+            }
+        }
+        return v;
+    }
 };
 
 // { Driver Code Starts.
