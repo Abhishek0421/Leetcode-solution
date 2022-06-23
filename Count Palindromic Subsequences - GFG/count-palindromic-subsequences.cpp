@@ -30,7 +30,7 @@ class Solution{
                 }
                 else if(str[i]==str[j])
                 {
-                    dp[i][j]+=(dp[i+1][j-1]%mod+1%mod+dp[i+1][j]%mod+dp[i][j-1]%mod-dp[i+1][j-1]%mod)%mod;
+                    dp[i][j]+=(1%mod+dp[i+1][j]%mod+dp[i][j-1]%mod)%mod;
                 }
                 else
                     dp[i][j]+=(mod + dp[i+1][j]%mod+dp[i][j-1]%mod-dp[i+1][j-1]%mod)%mod;
