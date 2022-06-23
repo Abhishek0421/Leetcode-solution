@@ -9,35 +9,52 @@ class Solution
 {
 	public:
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
+    int par(int u,vector<int> &parent){
+        if(parent[u]==u){
+            return u;
+        }
+        return parent[u] = par(parent[u],parent);
+    }
+    void mst(int x,int y,vector<int> &rank,vector<int> &parent){
+        x = par(x,parent);
+        y = par(y,parent);
+        if(rank[x]>rank[y]){
+            parent[y]=x;
+        }
+        else if(rank[x]<rank[y]){
+            parent[x]=y;
+        }
+        else{
+            parent[x]=y;
+            rank[y]++;
+        }
+    }
     int spanningTree(int V, vector<vector<int>> adj[])
     {
         // code here
-        vector<int> dist(V,INT_MAX);
-        vector<int> parent(V,-1);
-        vector<int> mst(V,0);
-        set<pair<int,int>> st;
-        st.insert({0,0});
-        dist[0]=0;
+        vector<int> parent(V);
+        for(int i=0;i<V;i++){
+            parent[i]=i;
+        }
+        vector<int> rank(V,0);
+        int sum=0;
+        set<pair<int,pair<int,int> > > st;
+        for(int i=0;i<V;i++){
+            for(auto x:adj[i]){
+                st.insert({x[1],{i,x[0]}});
+            }
+        }
         while(!st.empty()){
             auto it = *st.begin();
             st.erase(st.begin());
             int d = it.first;
-            int u = it.second;
-            mst[u]=1;
-            for(auto x:adj[u]){
-                int wt = x[1];
-                int v = x[0];
-                if(mst[v]==0 && dist[v]>wt){
-                    parent[v]=u;
-                    dist[v] = wt ;
-                    st.insert({dist[v],v});
-                }
+            int x = it.second.first;
+            int y = it.second.second;
+            if(par(x,parent)!=par(y,parent)){
+                sum+=d;
+              //  cout<<x<<" "<<y<<"\n";
+                mst(x,y,rank,parent);
             }
-        }
-        int sum=0;
-        for(auto x:dist){
-            sum+=x;
-            //cout<<x<<"\n";
         }
         return sum;
     }
