@@ -1,5 +1,5 @@
 # Painting the Fence
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given a fence with n posts and k colors, find out the number of ways of painting the fence so that not more than two consecutive fences have the same colors</span><span style="font-size:18px">. Since the answer can be large return it modulo 10^9 + 7.</span></p>
 
