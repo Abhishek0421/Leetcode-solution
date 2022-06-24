@@ -7,15 +7,15 @@ using namespace std;
  // } Driver Code Ends
 class Solution{
     public:
-    int dp[5001][3];
-    int solve(int n,int k,int i,int prevcol,int count){
+    long long int dp[5001][3];
+    long long int solve(int n,int k,int i,int prevcol,int count){
         if(i>n){
             return 1;
         }
         if(dp[i][count]!=-1){
             return dp[i][count];
         }
-        int ans = 0;
+        long long int ans = 0;
         for(int j=1;j<=k;j++){
             if(prevcol==j && count==2){
                continue;
