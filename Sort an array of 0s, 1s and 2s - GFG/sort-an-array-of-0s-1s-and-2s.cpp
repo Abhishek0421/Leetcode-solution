@@ -11,36 +11,19 @@ class Solution
     void sort012(int a[], int n)
     {
         int i=0;
-        int j=i+1;
-        while(i<n && j<n){
-            if(a[j]<a[i]){
+        int j=0,k=n-1;
+        while(j<=k){
+            if(a[j]==1){
+                j++;
+            }
+            else if(a[j]==0){
                 swap(a[i],a[j]);
-                if(a[i]==0){
-                    i++;
-                }
+                i++;
                 j++;
             }
             else{
-                if(a[i]==0){
-                    i++;
-                }
-                j++;
-            }
-        }
-        j = i+1;
-        while(i<n && j<n){
-            if(a[j]<a[i]){
-                swap(a[i],a[j]);
-                if(a[i]==1){
-                    i++;
-                }
-                j++;
-            }
-            else{
-                if(a[i]==1){
-                    i++;
-                }
-                j++;
+                swap(a[j],a[k]);
+                k--;
             }
         }
     }
