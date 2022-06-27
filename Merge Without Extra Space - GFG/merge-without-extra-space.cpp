@@ -9,21 +9,15 @@ public:
     
 	void merge(int arr1[], int arr2[], int n, int m) {
 	    // code here
-	    vector<int> v;
-	    for(int i=0;i<n;i++){
-	        v.push_back(arr1[i]);
+	    int i=n-1;
+	    int j=0;
+	    while(arr1[i]>arr2[j] && j<m && i>=0){
+	        swap(arr1[i],arr2[j]);
+	        i--;
+	        j++;
 	    }
-	    for(int i=0;i<m;i++){
-	        v.push_back(arr2[i]);
-	    }
-	    sort(v.begin(),v.end());
-	    for(int i=0;i<n;i++){
-	        arr1[i] = v[i];
-	    }
-	    for(int i=0;i<m;i++){
-	        arr2[i] = v[i+n];
-	    }
-	    
+	    sort(arr1,arr1+n);
+	    sort(arr2,arr2+m);
 	}
 };
 
