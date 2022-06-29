@@ -7,24 +7,31 @@ using namespace std;
 class Solution {
   public:
     vector<int> max_of_subarrays(vector<int> arr, int n, int k) {
-        // your code here
-        map<int,int> mp;
-        vector<int> v;
-        for(int i=0;i<k;i++){
-            mp[arr[i]]++;
-            if(i==k-1){
-                v.push_back((--mp.end())->first);
+        vector<int> ans;
+        multiset<int> qe;
+        for(int i=0;i<=n;i++)
+        {
+            if(i<k)
+            {
+                qe.insert(arr[i]);
+            }
+            else
+            {
+              ans.push_back(*--qe.end());
+              qe.erase(qe.find(arr[i-k]));
+            //   if(qe.count(arr[i-k])==1)
+            //      qe.erase(arr[i-k]);
+            //   else
+            //   {
+            //      qe.erase(arr[i-k]); 
+            //      qe.insert(arr[i-k]);
+            //   }
+              //if(i<n)
+              if(i==n) break;
+              qe.insert(arr[i]);
             }
         }
-        for(int i=k;i<n;i++){
-            mp[arr[i]]++;
-            mp[arr[i-k]]--;
-            if(mp[arr[i-k]]==0){
-                mp.erase(arr[i-k]);
-            }
-            v.push_back((--mp.end())->first);
-        } 
-        return v;
+        return ans;
     }
 };
 
