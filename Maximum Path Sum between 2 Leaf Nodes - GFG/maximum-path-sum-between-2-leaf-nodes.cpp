@@ -92,58 +92,52 @@ struct Node
 
 class Solution {
 public:
-    int ans = INT_MIN;
+    int d;
     int solve(Node* root){
-        if(root==NULL){
-            return 0;
-        }
+        if(!root) return NULL;
         if(!root->left && !root->right){
             return root->data;
         }
-        else{
-            int l = solve(root->left);
-            int r = solve(root->right);
-            if(root->left==NULL){
-                return root->data+r;
-            }
-            if(root->right==NULL){
-                return root->data+l;
-            }
-            else{
-                int temp = root->data + max(l,r);
-                ans = max(ans,l+r+root->data);
-                return temp;
-            }
+        int l = solve(root->left);
+        int r = solve(root->right);
+        if(root->left==NULL){
+            return root->data+r;
         }
+        if(root->right==NULL){
+            return root->data+l;
+        }
+        d = max(d,root->data+l+r);
+        return root->data + max(l,r);
     }
     int maxPathSum(Node* root)
     {
         // code here
+        d=INT_MIN;
         if(root->left == NULL && root->right != NULL)
        {
-           Node* root2 = new Node(0);
-           root2->left = root;
-           root2->right = root->right;
+           Node* r1 = new Node(0);
+           r1->left = root;
+           r1->right = root->right;
            root->left = root->right = NULL;
             
-           solve(root2);
-           return ans;
+           solve(r1);
+           return d;
            
        }
        if(root->left != NULL && root->right == NULL)
        {
 
-           Node* root2 = new Node(0);
-           root2->left = root->left;
-           root2->right = root;
+           Node* r1 = new Node(0);
+           r1->left = root->left;
+           r1->right = root;
            root->left = root->right = NULL;
             
-           solve(root2);
-           return ans;
+           solve(r1);
+           return d;
            
        }
         solve(root);
-        return ans;
+        return d;
     }
 };
 
