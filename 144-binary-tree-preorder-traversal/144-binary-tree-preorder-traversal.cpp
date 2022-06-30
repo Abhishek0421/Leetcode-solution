@@ -23,11 +23,10 @@ public:
             }
             else{
                 TreeNode* l = root->left;
-                TreeNode* r = root->right;
                 while(l->right){
                     l = l->right;
                 }
-                l->right = r;
+                l->right = root->right;
                 TreeNode* temp = root->left;
                 root->left=NULL;
                 root = temp;
