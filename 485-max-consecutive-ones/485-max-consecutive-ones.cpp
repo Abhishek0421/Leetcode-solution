@@ -8,13 +8,11 @@ public:
                 i++;
             }
             else{
-                ans = max(count,ans);
-               // cout<<count<<"\n";
                 count=0;
                 i++;
-            }  
+            }
+            ans = max(count,ans);
         }
-        ans = max(count,ans);
         return ans;
     }
 };
