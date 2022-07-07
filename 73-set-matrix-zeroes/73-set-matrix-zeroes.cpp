@@ -24,7 +24,7 @@ void setZeroes(vector<vector<int>>& matrix) {
                 n++;
         }
     }
-    n=54327;
+    n=1e9;
     for(int i=0;i<r;i++){
         for(int j=0;j<c;j++){
           if(matrix[i][j]==0){
