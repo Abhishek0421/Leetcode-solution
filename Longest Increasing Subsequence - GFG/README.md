@@ -1,5 +1,5 @@
 # Longest Increasing Subsequence
-##  Medium 
+## Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array of integers, find the <strong>length </strong>of the<strong> longest (strictly) increasing subsequence</strong> from the&nbsp;given array.</span></p>
 
