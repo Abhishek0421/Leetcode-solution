@@ -14,20 +14,13 @@ class Solution{
 	    v[0] = arr[0];
 	    int ans = v[0];
 	    for(int i=1;i<n;i++){
-	        int mx = arr[i];
+	        v[i] = arr[i];
 	        for(int j=0;j<i;j++){
 	            if(arr[j]<arr[i]){
-	                mx = max(mx,arr[i]+v[j]);
+	                v[i] = max(v[i],arr[i]+v[j]);
 	            }
 	        }
-	       // if(mx == INT_MIN){
-	       //     v[i] = arr[i];
-	       // }
-	       // else{
-	            ans = max(ans,mx);
-	            v[i] = mx;
-	           // cout<<mx<<"\n";
-	       // }
+	       ans = max(ans,v[i]);
 	    }
 	    return ans;
 	}  
