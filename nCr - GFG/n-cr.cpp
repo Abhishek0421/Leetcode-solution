@@ -18,7 +18,7 @@ public:
            r=n-r;
        }
        int mod=1e9+7;
-       int dp[r+1];
+       int dp[r+2];
        memset(dp,0,sizeof(dp));
        dp[0]=1;
        for(int i=1;i<=n;i++){
