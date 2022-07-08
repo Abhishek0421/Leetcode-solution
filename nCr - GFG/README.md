@@ -1,5 +1,5 @@
 # nCr
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given two integers&nbsp;n and r, find <sup>n</sup>C<sub>r. </sub>Since the answer may be very large, calculate the answer modulo&nbsp;10<sup>9</sup>+7.</span></p>
 
