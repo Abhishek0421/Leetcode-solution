@@ -7,7 +7,7 @@ public:
         int maxr = nums[0];
         int ma=INT_MIN;
         if(n==1) return 0;
-        else if(nums[0]==0) return -1;
+       // else if(nums[0]==0) return -1;
         else{
             for(int i=1;i<n;i++){
                 if(i==n-1){
@@ -17,9 +17,9 @@ public:
                 step--;
                 if(step==0){
                     jump++;
-                    if(i>=maxr){
-                        return -1;
-                    }
+                    // if(i>=maxr){
+                    //     return -1;
+                    // }
                     step = maxr-i;
                 }
             }
