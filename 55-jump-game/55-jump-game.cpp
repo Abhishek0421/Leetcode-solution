@@ -18,9 +18,6 @@ public:
             if(steps < nums[i]){
                 steps = nums[i];
             }
-            // if(steps == 0){
-            //     return false;
-            // }
         }
         return true;
     }
