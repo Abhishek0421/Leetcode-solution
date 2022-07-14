@@ -10,17 +10,17 @@ class Solution{
 	int maxSumIS(int arr[], int n)  
 	{  
 	    // Your code goes here
-	    vector<int> v(n);
-	    v[0] = arr[0];
-	    int ans = v[0];
+	    vector<int> dp(n,0);
+	    int ans = arr[0];
+	    dp[0] = arr[0];
 	    for(int i=1;i<n;i++){
-	        v[i] = arr[i];
+	        dp[i] = arr[i];
 	        for(int j=0;j<i;j++){
-	            if(arr[j]<arr[i]){
-	                v[i] = max(v[i],arr[i]+v[j]);
+	            if(arr[i]>arr[j]){
+	                dp[i] = max(dp[i],dp[j]+arr[i]);
 	            }
 	        }
-	       ans = max(ans,v[i]);
+	        ans = max(ans,dp[i]);
 	    }
 	    return ans;
 	}  
