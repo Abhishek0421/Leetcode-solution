@@ -1,5 +1,5 @@
 # Maximum sum increasing subsequence
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array of n positive integers. Find the sum of the maximum sum subsequence of the given array such that the integers in the subsequence are sorted in increasing order i.e. increasing subsequence.&nbsp;</span></p>
 
