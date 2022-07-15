@@ -12,21 +12,21 @@ class Solution
 {
     public:
     //Function to find minimum number of pages.
-    bool is_possible(int mid,int arr[],int m,int n){
-        int partition=1;
+    bool is_possible(int a[],int n,int m,int mid){
+        int partition = 1;
+        int temp = 0;
         int i=0;
-        int temp=0;
         while(i<n){
-            if(temp+arr[i]<=mid){
-                temp+=arr[i];
+            if(temp+a[i]<=mid){
+                temp+=a[i];
                 i++;
             }
             else{
                 partition++;
-                if(partition>m || arr[i]>mid){
+                if(partition > m || a[i]>mid){
                     return false;
                 }
-                temp=arr[i];
+                temp = a[i];
                 i++;
             }
         }
@@ -35,20 +35,21 @@ class Solution
     int findPages(int A[], int N, int M) 
     {
         //code here
-        int sum=0;
+        int low = 0;
+        int sum =0;
+        int ans = 0;
         for(int i=0;i<N;i++){
             sum+=A[i];
         }
-        int start = 0,end=sum;
-        int ans = -1;
-        while(start<=end){
-            int mid = (start+end)/2;
-            if(is_possible(mid,A,M,N)){
+        int high = sum;
+        while(low<=high){
+            int mid = (high+low)/2;
+            if(is_possible(A,N,M,mid)){
                 ans = mid;
-                end = mid-1;
+                high = mid-1;
             }
             else{
-                start = mid+1;
+                low = mid+1;
             }
         }
         return ans;
