@@ -1,5 +1,6 @@
 class Solution {
 public:
+    int dp[41][41];
     int mx(vector<int> &arr,int s,int e){
         int res = INT_MIN;
         for(int i=s;i<=e;i++){
@@ -7,14 +8,10 @@ public:
         }
         return res;
     }
-    int dp[41][41];
     int solve(vector<int> &arr,int s,int e){
         if(s>=e){
             return 0;
         }
-        // if(e-s==1){
-        //     return arr[s]*arr[e];
-        // }
         if(dp[s][e]!=-1){
             return dp[s][e];
         }
