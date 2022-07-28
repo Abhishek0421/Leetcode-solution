@@ -11,55 +11,26 @@
  */
 class Solution {
 public:
-    void flatten(TreeNode* root) {
-        if(!root){
-            return ;
+    TreeNode* last_right(TreeNode* root){
+        if(!root->right){
+            return root;
         }
-        while(root){
-            if(!root->left){
-                root = root->right;
+        return last_right(root->right);
+    }
+    void flatten(TreeNode* root) {
+        if(!root) return;
+        TreeNode* node = root;
+        while(node){
+            if(node->left){
+                TreeNode* right = node->right;
+                TreeNode* n = last_right(node->left);
+                n->right = node->right;
+                node->right = node->left;
+                node->left = NULL;
             }
             else{
-                TreeNode* l = root->left;
-                while(l->right){
-                    l = l->right;
-                }
-                l->right = root->right;
-                root->right = root->left;
-                TreeNode* nl = root->left;
-                root->left = NULL;
-                root = nl;
+                node = node->right;
             }
         }
     }
 };
-// class Solution {
-// public:
-//     void flatten(TreeNode* root) {
-//         if(!root){
-//             return NULL;
-//         }
-//         while(root){
-//             if(!root->right){
-//                 root = root->left;
-//             }
-//             else{
-//                 TreeNode* l = root->left;
-//                 TreeNode* r = root->right;
-//                 if(l){
-//                     while(l->right){
-//                         l = l->right;
-//                     }
-//                     if(l->right==NULL){
-//                         l->right = r;
-//                     }
-//                     root->right = root->left;
-//                     root->left = NULL;
-//                 }
-//                 else{
-//                     root = root->right;
-//                 }
-//             }
-//         }
-//     }
-// };
