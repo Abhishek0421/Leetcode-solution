@@ -65,7 +65,7 @@ class Solution
     struct node *reverse (struct node *head, int k)
     { 
         // Complete this method
-        if(head == NULL) return NULL;
+        //if(head == NULL) return NULL;
         node* h1 = head;
         for(int i=1;i<k;i++){
             if(head == NULL){
