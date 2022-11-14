@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 #define MAX_HEIGHT 100000
@@ -18,33 +18,29 @@ struct Node {
 
 
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution
 {
     public:
     //Function to check whether a Binary Tree is BST or not.
-    
-    bool solve(Node* root,int mi,int mx){
-        if(root==NULL){
-            return true;
+    bool check(Node* root,int mx,int mn){
+        if(!root) return true;
+        if(root->data < mx && root->data > mn){
+            return check(root->left,root->data,mn) && check(root->right,mx,root->data);
         }
-        if(root->data > mi && root->data < mx){
-            return solve(root->left,mi,root->data) && solve(root->right,root->data,mx);
-        }
-        else{
-            return false;
-        }
+        return false;
     }
     bool isBST(Node* root) 
     {
-        return solve(root,INT_MIN,INT_MAX);
+        // Your code here
+        return check(root,INT_MAX,INT_MIN);
     }
 };
 
 
 
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 // Function to Build Tree
 Node* buildTree(string str)
@@ -142,5 +138,4 @@ int main() {
 }
 
 
-//Position this line where user code will be pasted
-  // } Driver Code Ends
+// } Driver Code Ends
