@@ -1,6 +1,9 @@
-// { Driver Code Starts
+//{ Driver Code Starts
+
+
 #include <bits/stdc++.h>
 using namespace std;
+
 
 struct Node
 {
@@ -45,7 +48,8 @@ Node* buildTree(string str)
         queue.pop();
             
         // Get the current node's value from the string
-        string currVal = ip[i];
+        string currVal = "";
+        currVal+=ip[i];
             
         // If the left child is not null
         if(currVal != "N") {
@@ -78,17 +82,18 @@ Node* buildTree(string str)
     return root;
 }
 
-void preorder(Node* root){
+void preorder(Node* root,vector<int> &temp){
     if(!root){
         return ;
     }
-    cout<<root->data<<" ";
-    preorder(root->left);
-    preorder(root->right);
+    //cout<<root->data<<" ";
+    temp.push_back(root->data);
+    preorder(root->left,temp);
+    preorder(root->right,temp);
 }
 
 
- // } Driver Code Ends
+// } Driver Code Ends
 //function Template for C++
 
 /*
@@ -101,19 +106,17 @@ struct Node {
 // you are required to complete this function
 // the function and return an vector of Node
 // which contains all the duplicate sub-tree
-
 string pre(Node* root,vector<Node*> &v,unordered_map<string,int> &mp){
-    if(root==NULL){
-        return "";
-    }
-    string s="(";
-    s+=pre(root->left,v,mp);
-    s+=to_string(root->data);
-    s+=pre(root->right,v,mp);
-    s+=")";
+    if(!root) return "";
+    string s = "(";
+    s += pre(root->left,v,mp);
+    s += to_string(root->data);
+    s += pre(root->right,v,mp);
+    s += ")";
+    
     mp[s]++;
     if(mp[s]==2){
-            v.push_back(root);
+        v.push_back(root);
     }
     return s;
 }
@@ -126,25 +129,57 @@ vector<Node*> printAllDups(Node* root)
     return v;
 }
 
-// { Driver Code Starts.
-int main()
-{
-    int t;
-	scanf("%d ",&t);
-    while(t--)
+//{ Driver Code Starts.
+
+
+
+
+
+
+
+
+int main() {
+
+
+    int tc;
+    cin>>tc;
+    while(tc--)
     {
+        
         string treeString;
-		getline(cin,treeString);
-		Node* root = buildTree(treeString);
-		vector<Node*> res = printAllDups(root);
-		
-		for(int i=0;i<res.size();i++){
-		    preorder(res[i]);
-		    cout<<endl;
-		}
+        getline(cin>>ws,treeString);
+        //cin.ignore();
+        //cin.clear();
+        //cout<<treeString<<"\n";
+
+        Node* root = buildTree(treeString);
+        vector<Node*> res = printAllDups(root);
+
+        vector<vector<int>>ans;
+        
+        for(int i=0;i<res.size();i++){
+            vector<int> temp;
+            preorder(res[i],temp);
+            ans.push_back(temp);
+        }
+        
+        sort(ans.begin(),ans.end());
+        
+        for(int i=0;i<ans.size();i++){
+            for(int j=0;j<ans[i].size();j++){
+                cout<<ans[i][j]<<" ";
+            }
+            cout<<"\n";
+        }
+        //cout<<"\n";
+
+        
     }
-    return 0;
+return 0;
 }
 
 
-  // } Driver Code Ends
+
+
+
+// } Driver Code Ends
