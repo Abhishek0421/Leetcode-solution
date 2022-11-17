@@ -1,47 +1,46 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution {
   public:
     // Function to detect cycle in a directed graph.
-    bool dfs(int s,vector<int> &visi,vector<int> &currv,vector<int> adj[]){
-        visi[s]=1;
-        currv[s]=1;
-        for(auto x:adj[s]){
-            if(!visi[x]){
-                if(dfs(x,visi,currv,adj)){
-                    return true;
-                }
-                
-            }
-            else{
-                if(currv[x]==1){
-                    return true;
-                }
-            }
-        }
-        currv[s]=0;
-        return false;
-    }
     bool isCyclic(int V, vector<int> adj[]) {
         // code here
-        vector<int> visi(V,0);
-        vector<int> currv(V,0);
+        //vector<int> visi(V,0);
+        vector<int> ans;
+        vector<int> indegree(V,0);
         for(int i=0;i<V;i++){
-            if(!visi[i]){
-                
-                if(dfs(i,visi,currv,adj)){
-                    return true;
+            for(auto x:adj[i]){
+                indegree[x]++;
+            }
+        }
+        queue<int> q;
+        for(int i=0;i<V;i++){
+            if(indegree[i]==0){
+                q.push(i);
+            }
+        }
+        while(!q.empty()){
+            int a = q.front();
+            q.pop();
+            ans.push_back(a);
+            for(auto x:adj[a]){
+                indegree[x]--;
+                if(indegree[x]==0){
+                    q.push(x);
                 }
             }
         }
-        return false;
+        if(ans.size()==V){
+            return false;
+        }
+        return true;
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 int main() {
 
@@ -65,4 +64,5 @@ int main() {
 
     return 0;
 }
-  // } Driver Code Ends
+
+// } Driver Code Ends
