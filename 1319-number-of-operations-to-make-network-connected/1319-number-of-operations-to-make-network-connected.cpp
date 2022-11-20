@@ -11,6 +11,9 @@ public:
     int makeConnected(int n, vector<vector<int>>& connections){
         unordered_map<int ,vector<int>> mp;
         int x=connections.size();
+        if(x<n-1){
+            return -1;
+        }
         for(auto y:connections){
             mp[y[0]].push_back(y[1]);
             mp[y[1]].push_back(y[0]);
@@ -23,11 +26,9 @@ public:
                 dfs(i,visi,mp);
             }
         }
-        if(x<n-1){
-            return -1;
-        }
-        else{
+        
+        
             return count-1;
-        }
+        
     }
 };
