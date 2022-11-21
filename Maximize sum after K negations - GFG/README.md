@@ -1,7 +1,6 @@
 # Maximize sum after K negations
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array of integers of size <strong>N</strong> and a number <strong>K</strong>., Your must modify array <strong>arr[]</strong> exactly <strong>K</strong> number of times. Here modify array means in each operation you can replace any array element either <strong>arr[i] </strong>by<strong> -arr[i]</strong> or <strong>-arr[i] </strong>by<strong> arr[i]</strong>. You need to perform this operation in such a way that after K operations, the sum of the array must be maximum.</span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of integers of size <strong>N</strong> and a number <strong>K</strong>., Your must modify array <strong>arr[]</strong> exactly <strong>K</strong> number of times. Here modify array means in each operation you can replace any array element either <strong>arr[i] </strong>by<strong> -arr[i]</strong> or <strong>-arr[i] </strong>by<strong> arr[i]</strong>. You need to perform this operation in such a way that after K operations, the sum of the array must be maximum.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -41,7 +40,6 @@ You <strong>don't</strong> have to print anything, print ting is done by the dri
 
 <p><br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
-<span style="background-color: transparent; color: rgb(0, 0, 0); font-family: arial; --darkreader-inline-bgcolor:transparent; --darkreader-inline-color:#f2f0ed;" data-darkreader-inline-bgcolor="" data-darkreader-inline-color="">1 ≤ N,K ≤ 10<sup>5</sup></span><br>
-<span style="background-color: transparent; color: rgb(0, 0, 0); font-family: arial; --darkreader-inline-bgcolor:transparent; --darkreader-inline-color:#f2f0ed;" data-darkreader-inline-bgcolor="" data-darkreader-inline-color="">-10<sup>9</sup>&nbsp;≤ A<sub>i</sub> ≤ 10<sup>9</sup></span></span></p>
- <p></p>
-            </div>
+<span style="background-color:transparent; color:rgb(0, 0, 0); font-family:arial">1 ≤ N,K ≤ 10<sup>5</sup></span><br>
+<span style="background-color:transparent; color:rgb(0, 0, 0); font-family:arial">-10<sup>9</sup>&nbsp;≤ A<sub>i</sub> ≤ 10<sup>9</sup></span></span></p>
+</div>
