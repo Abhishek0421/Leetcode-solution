@@ -1,9 +1,9 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 //User function template for C++
 class Solution{
 public:
@@ -11,23 +11,23 @@ public:
 	// Function to find maximum product subarray
 	long long maxProduct(vector<int> arr, int n) {
 	    // code here
-	    long long int ans = arr[0];
-	    long long int mx = ans;
-	    long long int mn = ans;
-	    
+	    long long mx = arr[0];
+	    long long mn = arr[0];
+	    long long ans = arr[0];
 	    for(int i=1;i<n;i++){
 	        if(arr[i]<0){
 	            swap(mx,mn);
 	        }
-	        mx = max((long long)(arr[i]),mx*arr[i]);
-	        mn = min((long long)(arr[i]),mn*arr[i]);
-	        ans = max(ans,mx);
+	        mx = max((long long)arr[i],mx*arr[i]);
+	        mn = min((long long)arr[i],mn*arr[i]);
+	        
+	        ans = max(mx,ans);
 	    }
 	    return ans;
 	}
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 int main() {
     int t;
@@ -44,4 +44,5 @@ int main() {
         cout << ans << "\n";
     }
     return 0;
-}  // } Driver Code Ends
+}
+// } Driver Code Ends
