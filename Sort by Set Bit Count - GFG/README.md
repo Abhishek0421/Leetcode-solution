@@ -1,7 +1,6 @@
 # Sort by Set Bit Count
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array of integers, sort the array (in descending order) according to count of set bits in binary representation of array elements.&nbsp; </span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of integers, sort the array (in descending order) according to count of set bits in binary representation of array elements.&nbsp; </span></p>
 
 <p><span style="font-size:18px"><strong>Note:</strong> For integers having same number of set bits in their binary representation, sort according to their position in the original array i.e., a stable sort.</span></p>
 
@@ -59,5 +58,4 @@ You don't need to print anything, printing is done by the driver code itself. Yo
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤ 10<sup>5</sup><br>
 1 ≤ A[i] ≤ 10<sup>6</sup> </span></p>
- <p></p>
-            </div>
+</div>
