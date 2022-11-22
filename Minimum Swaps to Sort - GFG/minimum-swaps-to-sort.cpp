@@ -20,7 +20,7 @@ class Solution
 	    }
 	    sort(v.begin(),v.end());
 	    for(int i=0;i<n;i++){
-	        while(v[i].second!=i){
+	        while(v[i].second != i){
 	            swap(v[i],v[v[i].second]);
 	            swaps++;
 	        }
