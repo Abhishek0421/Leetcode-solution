@@ -1,7 +1,6 @@
 # Special Stack
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Design a data-structure<strong> SpecialStack&nbsp;</strong>that supports all the stack operations like <strong>push()</strong>, <strong>pop()</strong>,<strong> isEmpty()</strong>, <strong>isFull()</strong> and an additional operation <strong>getMin()</strong> which should return <strong>minimum </strong>element from the SpecialStack. Your task is to <strong>complete all the functions</strong>, using stack data-Structure.</span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Design a data-structure<strong> SpecialStack&nbsp;</strong>that supports all the stack operations like <strong>push()</strong>, <strong>pop()</strong>,<strong> isEmpty()</strong>, <strong>isFull()</strong> and an additional operation <strong>getMin()</strong> which should return <strong>minimum </strong>element from the SpecialStack. Your task is to <strong>complete all the functions</strong>, using stack data-Structure.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -28,5 +27,4 @@ given size);&nbsp;<strong>getMin()&nbsp;</strong>which takes the stack as&nbsp;i
 <p><br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 ≤ N ≤ 10<sup>4</sup></span></p>
- <p></p>
-            </div>
+</div>
