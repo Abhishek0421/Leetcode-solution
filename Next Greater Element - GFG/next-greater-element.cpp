@@ -12,20 +12,20 @@ class Solution
         // Your code here
         stack<long long> st;
         vector<long long> v;
-        st.push(arr[n-1]);
+        st.push(n-1);
         v.push_back(-1);
         int i = n-2;
         while(!st.empty() && i>=0){
-            if(st.top() > arr[i]){
-                v.push_back(st.top());
-                st.push(arr[i]);
+            if(arr[st.top()] > arr[i]){
+                v.push_back(arr[st.top()]);
+                st.push(i);
                 i--;
             }
             else{
                 st.pop();
                 if(st.empty()){
                     v.push_back(-1);
-                    st.push(arr[i]);
+                    st.push(i);
                     i--;
                 }
             }
