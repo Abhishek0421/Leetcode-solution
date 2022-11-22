@@ -1,7 +1,6 @@
 # Valid Substring
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a string <strong>S </strong>consisting only of opening and closing parenthesis 'ie <strong>'(' &nbsp;</strong>and <strong>')'</strong>, find out the length of the longest valid(well-formed) parentheses</span><span style="font-size:18px"> substring.</span><br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string <strong>S </strong>consisting only of opening and closing parenthesis 'ie <strong>'(' &nbsp;</strong>and <strong>')'</strong>, find out the length of the longest valid(well-formed) parentheses</span><span style="font-size:18px"> substring.</span><br>
 <span style="font-size:18px"><strong>NOTE: </strong>Length of&nbsp;the smallest&nbsp;valid substring&nbsp;<strong>( )</strong> is <strong>2</strong>.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -32,5 +31,4 @@ You dont need to read input or print anything. Complete the function <strong>fin
 1 &lt;= |S|&nbsp;&lt;= 10<sup>5</sup></span></p>
 
 <p>&nbsp;</p>
- <p></p>
-            </div>
+</div>
