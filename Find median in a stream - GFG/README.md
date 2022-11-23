@@ -1,7 +1,6 @@
 # Find median in a stream
-## Hard 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an input stream of <strong>N</strong> integers. The task is to insert these numbers into a new stream and find the median of the stream formed by each insertion of <strong>X</strong> to the new stream.</span></p>
+## Hard
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an input stream of <strong>N</strong> integers. The task is to insert these numbers into a new stream and find the median of the stream formed by each insertion of <strong>X</strong> to the new stream.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
@@ -60,5 +59,4 @@ It should have the following member functions:</span></div>
 <span style="font-size:18px">1 &lt;= x &lt;= 10<sup>6</sup></span></div>
 
 <div>&nbsp;</div>
- <p></p>
-            </div>
+</div>
