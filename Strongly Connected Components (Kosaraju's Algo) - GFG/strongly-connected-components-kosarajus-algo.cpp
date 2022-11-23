@@ -1,61 +1,60 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 
 
 class Solution
 {
 	public:
 	//Function to find number of strongly connected components in the graph.
-    void dfs(int s,vector<int> adj[],vector<int> &visi){
+    void dfs(int s ,vector<int> adj[],vector<int> &visi,stack<int> &st){
         visi[s]=1;
         for(auto x:adj[s]){
-            if(!visi[x]){
-                dfs(x,adj,visi);
-            }
+            if(visi[x]) continue;
+            dfs(x,adj,visi,st);
         }
+        st.push(s);
     }
-    void topo(int s,vector<int> adj[],vector<int> &visi,vector<int> &v){
+    void dfs2(int s ,vector<int> adj[],vector<int> &visi){
         visi[s]=1;
         for(auto x:adj[s]){
-            if(!visi[x]){
-                topo(x,adj,visi,v);
-            }
+            if(visi[x]) continue;
+            dfs2(x,adj,visi);
         }
-        v.push_back(s);
     }
     int kosaraju(int V, vector<int> adj[])
     {
         //code here
         vector<int> visi(V,0);
-        vector<int> tsort;
+        stack<int> st;
         for(int i=0;i<V;i++){
-            if(visi[i]==0){
-                topo(i,adj,visi,tsort);
+            if(!visi[i]){
+                dfs(i,adj,visi,st);
             }
         }
-        reverse(tsort.begin(),tsort.end());
-        vector<int> transpose[V];
+        vector<int> graph[V];
         for(int i=0;i<V;i++){
             visi[i]=0;
-            for(auto x:adj[i]){
-                transpose[x].push_back(i);
+            for(int j=0;j<adj[i].size();j++){
+                graph[adj[i][j]].push_back(i);
             }
         }
-        int count=0;
-        for(auto x:tsort){
-            if(!visi[x]){
-                count++;
-                dfs(x,transpose,visi);
+        int ans =0;
+        while(st.size()>0){
+            int i = st.top();
+            st.pop();
+            if(!visi[i]){
+                ans++;
+                dfs2(i,graph,visi);
             }
         }
-        return count;
+        return ans;
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 
 int main()
@@ -84,4 +83,5 @@ int main()
     return 0;
 }
 
-  // } Driver Code Ends
+
+// } Driver Code Ends
