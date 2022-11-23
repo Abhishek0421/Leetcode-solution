@@ -12,18 +12,22 @@ class Solution
     int longestSubsequence(int n, int a[])
     {
        // your code here
-       int dp[n];
-       int ans = 1;
-       for(int i=0;i<n;i++){
-           dp[i]=1;
-           for(int j=0;j<i;j++){
-               if(a[i]>a[j]){
-                   dp[i] = max(dp[i],dp[j]+1);
+       vector<int> v;
+       v.push_back(a[0]);
+       int idx = 0;
+       for(int i=1;i<n;i++){
+           if(v[idx] < a[i]){
+               v.push_back(a[i]);
+               idx++;
+           }
+           else if(v[idx] > a[i]){
+               auto it = upper_bound(v.begin(),v.end(),a[i]);
+               if(it!=v.end()){
+                   v[it-v.begin()] = a[i];
                }
            }
-           ans = max(ans,dp[i]);
        }
-       return ans;
+       return v.size();
     }
 };
 
