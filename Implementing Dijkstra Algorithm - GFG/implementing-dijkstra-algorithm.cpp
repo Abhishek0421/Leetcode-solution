@@ -1,8 +1,8 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution
 {
 	public:
@@ -11,23 +11,21 @@ class Solution
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
         // Code here
-        vector<int> visi(V,0);
         vector<int> dis(V,INT_MAX);
-        set<pair<int,int>> st;
+        vector<int> visi(V,0);
+        set<pair<int,int> > st;
         st.insert({0,S});
         dis[S]=0;
         while(!st.empty()){
             auto it = *st.begin();
             st.erase(st.begin());
-            int d = it.first;
             int u = it.second;
-            if(visi[u]) continue;
-            visi[u]=1;
+            int d = it.first;
             for(auto x:adj[u]){
                 int v = x[0];
                 int wt = x[1];
-                if(dis[v]>d+wt){
-                    dis[v]=d+wt;
+                if(dis[v] > d + wt){
+                    dis[v] = d+wt;
                     st.insert({dis[v],v});
                 }
             }
@@ -37,7 +35,7 @@ class Solution
 };
 
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 
 int main()
@@ -74,4 +72,5 @@ int main()
     return 0;
 }
 
-  // } Driver Code Ends
+
+// } Driver Code Ends
