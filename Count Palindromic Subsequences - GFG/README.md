@@ -1,7 +1,6 @@
 # Count Palindromic Subsequences
-##  Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a string str of length N,&nbsp;you have to find number&nbsp;of&nbsp;palindromic subsequence (need not necessarily be distinct) which could be formed&nbsp;from the string str.<br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a string str of length N,&nbsp;you have to find number&nbsp;of&nbsp;palindromic subsequence (need not necessarily be distinct) present in the string str.<br>
 Note: You have to return the answer module 10<sup>9</sup>+7;</span><br>
 &nbsp;</p>
 
@@ -37,5 +36,4 @@ You don't need to read input or print anything. Your task is to complete the fun
 <p><br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1&lt;=length of string str &lt;=1000</span></p>
- <p></p>
-            </div>
+</div>
