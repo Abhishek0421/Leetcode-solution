@@ -7,41 +7,24 @@ using namespace std;
 class Solution{
     public:
     /*You are required to complete below method */
-    long long mod;
-    long long solve(string str)
-    {
-        int n = str.length();
-        long long dp[n][n];
-        memset(dp,0,sizeof(dp));
-        for(int i=0;i<n;i++)
-            dp[i][i]=1;
-        for(int i=n-1;i>=0;i--)
-        {
-            for(int j=i+1;j<n;j++)
-            {
-                if(i+1==j)
-                {
-                    if(str[i]==str[j])
-                    {
-                        dp[i][j]+=3%mod;
-                    }
-                    else
-                        dp[i][j]+=2%mod;
-                }
-                else if(str[i]==str[j])
-                {
-                    dp[i][j]+=(1%mod+dp[i+1][j]%mod+dp[i][j-1]%mod)%mod;
-                }
-                else
-                    dp[i][j]+=(mod + dp[i+1][j]%mod+dp[i][j-1]%mod-dp[i+1][j-1]%mod)%mod;
-            }
+    int dp[1001][1001];
+    int mod = 1e9+7;
+    int solve(int i,int j,string &str){
+        if(i==j) return 1;
+        if(i>j) return 0;
+        
+        if(dp[i][j]!=-1) return dp[i][j];
+        
+        if(str[i]==str[j]){
+            return dp[i][j] =  (((1 + solve(i+1,j,str))%mod + solve(i,j-1,str))%mod)%mod;
         }
-        return dp[0][n-1]%mod;
+        return dp[i][j]=((solve(i+1,j,str) + solve(i,j-1,str))%mod +(mod - solve(i+1,j-1,str))%mod)%mod;
     }
     long long int  countPS(string str)
     {
-        mod=1e9+7;
-        return solve(str);
+       //Your code here
+       memset(dp,-1,sizeof(dp));
+       return solve(0,str.length()-1,str);
     }
      
 };
